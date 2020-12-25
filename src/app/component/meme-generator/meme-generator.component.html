@@ -1,0 +1,46 @@
+<div class="memeForm">
+  <h1>Random Meme Generator</h1>
+  <input
+    [(ngModel)]="state.topText"
+    type="text"
+    name="topText"
+    placeholder="Enter here your top text"
+    (change)="handleChange(templateReferenceVariable1)"
+    value="{{ state.topText }}"
+    #templateReferenceVariable1
+  />
+  <br />
+  <input
+    [(ngModel)]="state.bottomText"
+    type="text"
+    name="bottomText"
+    placeholder="Enter here your bottom text"
+    (change)="handleChange(templateReferenceVariable2)"
+    value="{{ state.bottomText }}"
+    #templateReferenceVariable2
+  />
+  <br />
+  <label>Font Size: </label>
+  <input
+    [(ngModel)]="state.fontSize"
+    type="number"
+    name="fontSize"
+    (change)="handleChange(templateReferenceVariable3)"
+    value="state.fontSize"
+    #templateReferenceVariable3
+  />
+  <button (click)="handleClick()" style="cursor: pointer">
+    Generate new meme
+  </button>
+</div>
+<div class="meme">
+  <h2 [style.font-size]="state.fontSize + 'px'" class="top">
+    {{ state.topText }}
+  </h2>
+
+  <img src="{{ state.randomImg }}" alt="This is the image" />
+
+  <h2 [style.font-size]="state.fontSize + 'px'" class="bottom">
+    {{ state.bottomText }}
+  </h2>
+</div>
